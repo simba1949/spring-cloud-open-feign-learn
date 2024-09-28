@@ -25,4 +25,9 @@ public class HelloServiceController {
 	public String hello(@RequestParam(name = "name", required = false) String name) {
 		return helloService.hello(name);
 	}
+
+	@GetMapping("/timeout-hello")
+	public String timeoutHello(@RequestParam(name = "name", required = false) String name) {
+		return helloService.timeoutHello(name);
+	}
 }

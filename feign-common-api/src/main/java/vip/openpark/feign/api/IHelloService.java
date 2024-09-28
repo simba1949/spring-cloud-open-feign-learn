@@ -17,4 +17,13 @@ public interface IHelloService {
 
 	@GetMapping(path = "/hello")
 	String hello(@RequestParam(name = "name", required = false) String name);
+
+	/**
+	 * 超时重试服务
+	 *
+	 * @param name name
+	 * @return String
+	 */
+	@GetMapping(path = "/timeout-hello")
+	String timeoutHello(@RequestParam(name = "name", required = false) String name);
 }

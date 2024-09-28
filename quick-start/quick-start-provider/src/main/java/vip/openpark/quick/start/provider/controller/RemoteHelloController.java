@@ -17,4 +17,15 @@ public class RemoteHelloController {
 	public String hello(@RequestParam(name = "name", required = false) String name) {
 		return "hello " + name;
 	}
+
+	@GetMapping(path = "/timeout-hello")
+	public String timeoutHello(@RequestParam(name = "name", required = false) String name) {
+		log.info("timeout hello");
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			log.info("timeout exception", e);
+		}
+		return "timeout hello " + name;
+	}
 }
