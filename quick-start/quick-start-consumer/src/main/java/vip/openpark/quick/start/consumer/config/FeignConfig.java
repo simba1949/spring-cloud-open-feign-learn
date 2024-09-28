@@ -1,5 +1,6 @@
 package vip.openpark.quick.start.consumer.config;
 
+import feign.Logger;
 import feign.Retryer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,5 +19,15 @@ public class FeignConfig {
 		// 第三个参数：重试次数（总共请求几次）
 		// 默认 Retryer.NEVER_RETRY;
 		return new Retryer.Default(500, 1000, 3);
+	}
+
+	/**
+	 * feign 日志级别
+	 *
+	 * @return Logger.Level
+	 */
+	@Bean
+	public Logger.Level feignLoggerLevel() {
+		return Logger.Level.FULL;
 	}
 }
